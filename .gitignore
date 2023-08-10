@@ -70,3 +70,13 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Example assets and samples
+/[Aa]ssets/[Ee]xampleAssets.meta
+/[Aa]ssets/[Ee]xampleAssets/*
+
+# Remove copyrighted dataset files
+/[Aa]ssets/QoEAudioVideo/[Tt]estAudio.meta
+/[Aa]ssets/QoEAudioVideo/[Tt]estVideos.meta
+/[Aa]ssets/QoEAudioVideo/[Tt]estAudio/
+/[Aa]ssets/QoEAudioVideo/[Tt]estVideos/
