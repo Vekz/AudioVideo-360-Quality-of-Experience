@@ -6,10 +6,12 @@ using UnityEngine.Video;
 public class PlaybackManager : MonoBehaviour
 {
     public EvaluationCoordinator Coordinator = null;
+    public Camera Camera = null;
 
-    [Header("Audio OSC")]
+    [Header("OSC")]
     public string IPAddress = "127.0.0.1";
-    public int Port = 9101;
+    public int DAWControlPort = 9101;
+    public int SceneRotatorPluginPort = 9100;
 
     private VideoManager _videoManager = null;
     private AudioManager _audioManager = null;
@@ -19,7 +21,7 @@ public class PlaybackManager : MonoBehaviour
         var videoPlayer = GetComponent<VideoPlayer>();
 
         _videoManager = new(videoPlayer);
-        _audioManager = new(IPAddress, Port);
+        _audioManager = new(IPAddress, DAWControlPort, SceneRotatorPluginPort, Camera.transform);
 
         _videoManager.PlaybackStopped.AddListener(Coordinator.TransitionToNextState);
         _videoManager.PlaybackStopped.AddListener(_audioManager.ResetAudioControls);
@@ -78,31 +80,75 @@ public class VideoManager
 
 public class AudioManager
 {
-    private OscClient _audioConnection;
+    private OscClient _dawControlConnection;
+    private OscClient _sceneRotatorPluginConnection;
+    private Transform _cameraTransform;
 
-    public AudioManager(string ipAddress, int port)
+    public AudioManager(string ipAddress, int dawControlPort, int sceneRotatorPluginPort, Transform cameraTransform)
     {
-        _audioConnection = new OscClient(ipAddress, port);
+        _dawControlConnection = new OscClient(ipAddress, dawControlPort);
+        _sceneRotatorPluginConnection = new OscClient(ipAddress, sceneRotatorPluginPort);
+        _cameraTransform = cameraTransform;
     }
 
     public void OnDestroy()
     {
+        _sceneRotatorPluginConnection?.Dispose();
+        _sceneRotatorPluginConnection = null;
+
         ResetAudioControls();
 
-        _audioConnection?.Dispose();
-        _audioConnection = null;
+        _dawControlConnection?.Dispose();
+        _dawControlConnection = null;
     }
 
+    // AudioPlayback
     public void PlayAudioWithVideo(PlaybackDto playback)
     {
         ResetAudioControls();
-        _audioConnection.Send($"/track/{playback.AudioTrackIndex}/solo/toggle");
-        _audioConnection.Send("/play");
+        _dawControlConnection.Send($"/track/{playback.AudioTrackIndex}/solo/toggle");
+        _dawControlConnection.Send("/play");
     }
 
     public void ResetAudioControls()
     {
-        _audioConnection.Send("/stop");
-        _audioConnection.Send("/soloreset");
+        _dawControlConnection.Send("/stop");
+        _dawControlConnection.Send("/soloreset");
     }
+    
+    // SceneRotator 
+    void Update()
+    {
+        UpdateRotation();
+    }
+
+    private void UpdateRotation()
+    {
+        var ea_transformRotation = _cameraTransform.rotation.eulerAngles;
+        _sceneRotatorPluginConnection.Send("/SceneRotator/ypr", ParseAngleToHalfRotation(ea_transformRotation.y), ParseAngleToQuaterRotation(ea_transformRotation.x), ParseAngleToHalfRotation(ea_transformRotation.z));
+    }
+
+    private float ParseAngleToHalfRotation(float angle)
+        => ParseAngleToRange(angle, 180, 360);
+
+    private float ParseAngleToQuaterRotation(float angle)
+        => ParseAngleToRange(angle, 90, 360);
+
+    private float ParseAngleToRange(float angle, float breakPoint, float range)
+    {
+        angle = angle % range;
+        if (angle > breakPoint)
+        {
+            var modulus = angle % breakPoint;
+            return -breakPoint + modulus;
+        }
+
+        if (angle < -breakPoint)
+        {
+            var modulus = Mathf.Abs(angle) % breakPoint;
+            return breakPoint - modulus;
+        }
+
+        return angle;
+    } 
 }
