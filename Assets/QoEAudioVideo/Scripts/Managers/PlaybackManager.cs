@@ -6,7 +6,7 @@ using UnityEngine.Video;
 public class PlaybackManager : MonoBehaviour
 {
     public EvaluationCoordinator Coordinator = null;
-    public Camera Camera = null;
+    public GameObject Camera = null;
 
     [Header("OSC")]
     public string IPAddress = "127.0.0.1";
@@ -44,6 +44,10 @@ public class PlaybackManager : MonoBehaviour
         _audioManager.OnDestroy();
     }
 
+    private void Update()
+    {
+        _audioManager.UpdateRotation();
+    }
 }
 
 public class VideoManager
@@ -117,12 +121,7 @@ public class AudioManager
     }
     
     // SceneRotator 
-    void Update()
-    {
-        UpdateRotation();
-    }
-
-    private void UpdateRotation()
+    public void UpdateRotation()
     {
         var ea_transformRotation = _cameraTransform.rotation.eulerAngles;
         _sceneRotatorPluginConnection.Send("/SceneRotator/ypr", ParseAngleToHalfRotation(ea_transformRotation.y), ParseAngleToQuaterRotation(ea_transformRotation.x), ParseAngleToHalfRotation(ea_transformRotation.z));
