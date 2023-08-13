@@ -44,7 +44,7 @@ public class PlaybackManager : MonoBehaviour
         _audioManager.OnDestroy();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _audioManager.UpdateRotation();
     }
