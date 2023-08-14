@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using OscJack;
 using UnityEngine;
 using UnityEngine.Events;
@@ -88,6 +90,8 @@ public class AudioManager
     private OscClient _sceneRotatorPluginConnection;
     private Transform _cameraTransform;
 
+    private List<Vector3> _rotationBuffer = new();
+
     public AudioManager(string ipAddress, int dawControlPort, int sceneRotatorPluginPort, Transform cameraTransform)
     {
         _dawControlConnection = new OscClient(ipAddress, dawControlPort);
@@ -109,7 +113,18 @@ public class AudioManager
     // AudioPlayback
     public void PlayAudioWithVideo(PlaybackDto playback)
     {
+        _rotationBuffer.Clear();
+
+        var testPlayback = playback as TestPlaybackDto;
+        if (testPlayback?.UseDelay ?? false)
+        {
+            var numberOfBufferedEntries = Mathf.FloorToInt(testPlayback.RotationDelayTime / (Time.fixedDeltaTime * 1000));
+
+            _rotationBuffer.AddRange(Enumerable.Repeat(_cameraTransform.rotation.eulerAngles, numberOfBufferedEntries));
+        }
+
         ResetAudioControls();
+
         _dawControlConnection.Send($"/track/{playback.AudioTrackIndex}/solo/toggle");
         _dawControlConnection.Send("/play");
     }
@@ -119,11 +134,14 @@ public class AudioManager
         _dawControlConnection.Send("/stop");
         _dawControlConnection.Send("/soloreset");
     }
-    
+
     // SceneRotator 
     public void UpdateRotation()
     {
-        var ea_transformRotation = _cameraTransform.rotation.eulerAngles;
+        _rotationBuffer.Add(_cameraTransform.rotation.eulerAngles);
+        var ea_transformRotation = _rotationBuffer.First();
+        _rotationBuffer.RemoveAt(0);
+        
         _sceneRotatorPluginConnection.Send("/SceneRotator/ypr", ParseAngleToHalfRotation(ea_transformRotation.y), ParseAngleToQuaterRotation(ea_transformRotation.x), ParseAngleToHalfRotation(ea_transformRotation.z));
     }
 
@@ -149,5 +167,5 @@ public class AudioManager
         }
 
         return angle;
-    } 
+    }
 }

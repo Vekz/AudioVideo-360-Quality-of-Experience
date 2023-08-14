@@ -7854,17 +7854,17 @@ PrefabInstance:
     - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
         type: 3}
       propertyPath: TestVideos.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
         type: 3}
       propertyPath: ControlVideos.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
         type: 3}
       propertyPath: TestVideos.Array.data[0].UseDelay
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
         type: 3}
@@ -7919,6 +7919,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TestVideos.Array.data[1].AudioTrackIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
+        type: 3}
+      propertyPath: TestVideos.Array.data[0].RotationDelayTime
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
         type: 3}

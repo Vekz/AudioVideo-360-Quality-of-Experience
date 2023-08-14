@@ -7,10 +7,10 @@ public class TestPlaybackDto : PlaybackDto
     public int ControlIndex;
     public bool UseDelay;
     [Range(20,2500), Tooltip("DelayTime in miliseconds (ms)")]
-    public float DelayTime = 20f;
+    public float RotationDelayTime = 20f;
 
     public void OnValidate()
     {
-        DelayTime = Mathf.Round(DelayTime / 20f) * 20f;
+        RotationDelayTime = Mathf.Round(RotationDelayTime / 20f) * 20f;
     }
 }

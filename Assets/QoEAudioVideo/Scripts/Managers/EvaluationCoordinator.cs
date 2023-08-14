@@ -16,8 +16,7 @@ public class EvaluationCoordinator : MonoBehaviour
     public string ParticipantIdentifier = string.Empty;
 
     [Header("Recordings Setup")]
-    public List<ControlPlaybackDto> ControlVideos = new();
-    public List<TestPlaybackDto> TestVideos = new();
+    public VideoSetup VideoSetup;
 
     #region EventSourcing
     [HideInInspector] public UnityEvent OnEvalStart = new();
@@ -33,7 +32,7 @@ public class EvaluationCoordinator : MonoBehaviour
     #region StateMachine
     private bool _isEntry = true;
     private bool _stateSetInternally = false;
-    private int _maximumTestCases = 3;
+    private int _maximumTestCases => VideoSetup.TestVideos.Count;
     private int _currentTrialNumber = 0;
     private EvaluationState _previousState = EvaluationState.TEST_PLAYBACK;
     private EvaluationState _currentState = EvaluationState.EVAL_ENTRY;
@@ -41,7 +40,7 @@ public class EvaluationCoordinator : MonoBehaviour
 
     #region Randomizer
     private System.Random _random = new();
-    private int _maximumRecording => TestVideos.Count;
+    private int _maximumRecording => VideoSetup.TestVideos.Count;
     private int _currentTestPlaybackIndex = 0;
     private HashSet<int> _alreadySeenRecordings = new();
     #endregion
@@ -52,8 +51,8 @@ public class EvaluationCoordinator : MonoBehaviour
             ParticipantNumber = ParticipantIdentifier,
             CurrentTrialNumber = _currentTrialNumber,
             NumberOfTrials = _maximumTestCases,
-            ControlPlaybackSettings = ControlVideos,
-            TestPlaybackSettings = TestVideos,
+            ControlPlaybackSettings = VideoSetup.ControlVideos,
+            TestPlaybackSettings = VideoSetup.TestVideos,
             CurrentTestRecordingIndex = _currentTestPlaybackIndex
         };
 
@@ -92,12 +91,12 @@ public class EvaluationCoordinator : MonoBehaviour
                 break;
             case EvaluationState.CONTROL_PLAYBACK:
                 OnPairRandomizerFinish.Invoke();
-                OnPlayBackStart.Invoke(ControlVideos[TestVideos[_currentTestPlaybackIndex].ControlIndex]);
+                OnPlayBackStart.Invoke(VideoSetup.ControlVideos[VideoSetup.TestVideos[_currentTestPlaybackIndex].ControlIndex]);
                 break;
             case EvaluationState.TEST_PLAYBACK:
                 OnPlayBackFinish.Invoke();
                 OnPlayBackPostFinish.Invoke();
-                OnPlayBackStart.Invoke(TestVideos[_currentTestPlaybackIndex]);
+                OnPlayBackStart.Invoke(VideoSetup.TestVideos[_currentTestPlaybackIndex]);
                 break;
             default:
                 throw new UnityException("Unknown evaluation state!");
@@ -157,7 +156,4 @@ public class EvaluationCoordinator : MonoBehaviour
         OnFinish.Invoke();
     }
 
-    private void OnValidate(){
-        TestVideos.ForEach(x => x.OnValidate());
-    }
 }
