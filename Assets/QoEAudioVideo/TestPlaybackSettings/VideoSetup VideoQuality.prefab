@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1800328437992751738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800328437992751737}
+  - component: {fileID: 1800328437992751736}
+  m_Layer: 0
+  m_Name: VideoSetup VideoQuality
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1800328437992751737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800328437992751738}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1800328437992751736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800328437992751738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71799d36ab9af8448173eaaed772e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControlVideos:
+  - VideoClip: {fileID: 32900000, guid: 80a92cb9b884a6c4088f2a3846ec895a, type: 3}
+    AudioTrackIndex: 1
+  - VideoClip: {fileID: 32900000, guid: cb42b435affaef64c86c1e3c9015cb6d, type: 3}
+    AudioTrackIndex: 2
+  - VideoClip: {fileID: 32900000, guid: 853b407682189b742bf557df1626ef80, type: 3}
+    AudioTrackIndex: 3
+  - VideoClip: {fileID: 32900000, guid: 3e3bc24c83322424daf306904e2593ac, type: 3}
+    AudioTrackIndex: 4
+  - VideoClip: {fileID: 32900000, guid: 9e0a1f25ddc8db0458ad13cacd74db3f, type: 3}
+    AudioTrackIndex: 5
+  - VideoClip: {fileID: 32900000, guid: 21245c1f4dd1dec4c8838c8fdb118021, type: 3}
+    AudioTrackIndex: 6
+  - VideoClip: {fileID: 32900000, guid: 81191ebc733074549899e78f15eea21e, type: 3}
+    AudioTrackIndex: 7
+  - VideoClip: {fileID: 32900000, guid: 6ae7b7caadc51f14580c5113da0b5c2c, type: 3}
+    AudioTrackIndex: 8
+  - VideoClip: {fileID: 32900000, guid: daf4916bbae8b774c85d67fcc4b6c38a, type: 3}
+    AudioTrackIndex: 9
+  - VideoClip: {fileID: 32900000, guid: 0280345ebb3b0d141a948187de224524, type: 3}
+    AudioTrackIndex: 10
+  - VideoClip: {fileID: 32900000, guid: 668601d4e69f1714a95b79d7547fdcf9, type: 3}
+    AudioTrackIndex: 11
+  TestVideos:
+  - VideoClip: {fileID: 32900000, guid: 27013389e8bf67249b77782f3cec1c14, type: 3}
+    AudioTrackIndex: 1
+    ControlIndex: 0
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: fec94752b87263e4eaf6a3610457a596, type: 3}
+    AudioTrackIndex: 2
+    ControlIndex: 1
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: 47baebc24beac6742985f20c3b0d2fac, type: 3}
+    AudioTrackIndex: 3
+    ControlIndex: 2
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: ccf18e678b92ddf459dfa45598a69966, type: 3}
+    AudioTrackIndex: 4
+    ControlIndex: 3
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: 08f08d54e9cd4234f9cdb6195594f912, type: 3}
+    AudioTrackIndex: 5
+    ControlIndex: 4
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: 27f2673da7dcf224296effe94c130f4d, type: 3}
+    AudioTrackIndex: 6
+    ControlIndex: 5
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: ba6b44484b12c864b8ec0b04ea92c7ae, type: 3}
+    AudioTrackIndex: 7
+    ControlIndex: 6
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: f1223cbf6e86a6146a005de91a1d9482, type: 3}
+    AudioTrackIndex: 8
+    ControlIndex: 7
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: 71bab97bf74deb241b7a05d2633bda6e, type: 3}
+    AudioTrackIndex: 9
+    ControlIndex: 8
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: c270a7c53ed17c64bb676d9ce817f4fc, type: 3}
+    AudioTrackIndex: 10
+    ControlIndex: 9
+    UseDelay: 0
+    RotationDelayTime: 0
+  - VideoClip: {fileID: 32900000, guid: 576cc4767b8401c4aa7dcfcd58f15636, type: 3}
+    AudioTrackIndex: 11
+    ControlIndex: 10
+    UseDelay: 0
+    RotationDelayTime: 0
