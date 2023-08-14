@@ -7863,16 +7863,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
         type: 3}
+      propertyPath: TestVideos.Array.data[0].UseDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
+        type: 3}
+      propertyPath: TestVideos.Array.data[0].DelayTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
+        type: 3}
       propertyPath: TestVideos.Array.data[0].VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: 8a494dcce565f2c4f913868af9147088,
         type: 3}
     - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
         type: 3}
+      propertyPath: TestVideos.Array.data[1].DelayTime
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
+        type: 3}
       propertyPath: TestVideos.Array.data[1].VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: 4b1bb47d885a1a64f99b696438db7728,
         type: 3}
+    - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
+        type: 3}
+      propertyPath: TestVideos.Array.data[0].DelayTimeF
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
+        type: 3}
+      propertyPath: TestVideos.Array.data[1].DelayTimeF
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 373356989039874504, guid: 0a7ff1599626ceb4bbbaa5a8ebe94f28,
         type: 3}
       propertyPath: ControlVideos.Array.data[0].VideoClip
@@ -8611,7 +8636,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Camera
       value: 
-      objectReference: {fileID: 1192810778}
+      objectReference: {fileID: 1192810774}
     - target: {fileID: 5083932849595753896, guid: b0ce3249fc0724741a0fe20b3a92596d,
         type: 3}
       propertyPath: Coordinator

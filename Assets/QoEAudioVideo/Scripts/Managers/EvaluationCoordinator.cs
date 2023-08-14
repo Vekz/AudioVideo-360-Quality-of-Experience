@@ -156,4 +156,8 @@ public class EvaluationCoordinator : MonoBehaviour
         _previousState = EvaluationState.EVAL_ENTRY;
         OnFinish.Invoke();
     }
+
+    private void OnValidate(){
+        TestVideos.ForEach(x => x.OnValidate());
+    }
 }
