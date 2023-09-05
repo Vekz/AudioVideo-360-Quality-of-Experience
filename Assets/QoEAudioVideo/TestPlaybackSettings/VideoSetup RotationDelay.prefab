@@ -59,9 +59,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
         type: 3}
+      propertyPath: TestVideos.Array.data[0].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 80a92cb9b884a6c4088f2a3846ec895a,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
       propertyPath: TestVideos.Array.data[10].UseDelay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[1].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: cb42b435affaef64c86c1e3c9015cb6d,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[2].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 853b407682189b742bf557df1626ef80,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[3].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 3e3bc24c83322424daf306904e2593ac,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[4].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 9e0a1f25ddc8db0458ad13cacd74db3f,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[5].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 21245c1f4dd1dec4c8838c8fdb118021,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[6].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 81191ebc733074549899e78f15eea21e,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[7].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 6ae7b7caadc51f14580c5113da0b5c2c,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[8].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: daf4916bbae8b774c85d67fcc4b6c38a,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[9].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 0280345ebb3b0d141a948187de224524,
+        type: 3}
+    - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
+        type: 3}
+      propertyPath: TestVideos.Array.data[10].VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 668601d4e69f1714a95b79d7547fdcf9,
+        type: 3}
     - target: {fileID: 1800328437992751736, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
         type: 3}
       propertyPath: TestVideos.Array.data[0].RotationDelayTime
@@ -175,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 1800328437992751738, guid: 52a4dd6a93e08cb41a5231aa6f1883e0,
         type: 3}
       propertyPath: m_Name
-      value: VideoSetup
+      value: VideoSetup RotationDelay
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a4dd6a93e08cb41a5231aa6f1883e0, type: 3}
